@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../assets/images/restaurant.png" alt="">
+        <span class="heading">FOOD COURT</span>
+        <span style="flex: 1;"></span>
+        <div class="navigate">
+            <a routerLink="/home">Home</a>
+            <a routerLink="/about">About</a>
+            <a routerLink="/contact">Contact</a>
+            <a (click)="goToCart()" style="cursor: pointer;" >{{cartState}}</a>
+            <a *ngIf="activity === 'login'" (click)="performActivity()" style="color: #ffa200; cursor: pointer;">{{activity}}</a>
+            <a *ngIf="activity === 'logout'" class='dropdown-trigger' data-target='dropdown1' style="color: #ffa200; cursor: pointer; white-space: nowrap;">{{customerName}}</a>
+        </div>
+
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a routerLink="/profile">Profile</a></li>
+          <li class="divider" tabindex="-1"></li>
+          <li><a (click)="performActivity()">Logout</a></li>
+        </ul>
+    </div><br>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="popup" *ngIf="isActive">
+    <div class="content" [ngSwitch]="popupType">
+      <div style="display: flex;">
+        <span style="flex: 1;"></span>
+        <span class="close"><i class="small material-icons" (click)="closePopup()">close</i></span>
+      </div>
+      <ng-container *ngSwitchCase="'profile'">
+        <h5>Update Profile</h5>
+        <div class="update">
+
+          <form class="col s12" [formGroup]="updationForm" (ngSubmit)="updateCustomer()">
+            <br>
+            <div class='row'>
+              <div class='input-field col s6'>
+                <b>Name :</b>
+                <input class='validate' type='text' name="name" formControlName='customerName' />
+                <span class="helper-text" data-error="Enter valid Name" data-success=""></span>
+              </div>
+              <div class='input-field col s6'>
+                <b>Email ID :</b>
+                <input class='validate' type='email' name="email" formControlName='customerEmail' />
+                <span class="helper-text" data-error="Enter valid email id" data-success=""></span>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s6'>
+                <b>Location :</b>
+                <input class='validate' type='text' name="location" formControlName='customerLocation' />
+                <span class="helper-text" data-error="Enter valid Location" data-success=""></span>
+              </div>
+              <div class='input-field col s6'>
+                <b>Contact :</b>
+                <input class='validate' type='number' name="contact" formControlName='customerContact' />
+                <span class="helper-text" data-error="Number should be of 10 digits only" data-success=""></span>
+              </div>
+            </div>
+
+            <br />
+            <div class='row'>
+              <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect'
+                style="background-color: #ffa200;">Update Profile</button>
+            </div>
+          </form>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'password'">
+        <h5>Change Password</h5>
+        <form class="col s12" [formGroup]="passwordUpdationForm" (ngSubmit)="updatePassword()">
+
+          <div class='row'>
+            <div class='input-field col s12'>
+              <input class='validate' type='password' name="oldPassword" formControlName='oldPassword' required />
+              <label for='oldPassword'>Enter Old Password</label>
+              <span class="helper-text" data-error="Enter valid Old Password" data-success=""></span>
+            </div>
+            <div class='input-field col s12'>
+              <input class='validate' type='password' name="newPassword" formControlName='newPassword' required />
+              <label for='newPassword'>Enter New Password</label>
+              <span class="helper-text" data-error="Enter valid New Password" data-success=""></span>
+            </div>
+            <div class='input-field col s12'>
+              <input class='validate' type='password' name="confirmPassword" formControlName='confirmPassword'
+                required />
+              <label for='confirmPassword'>Confirm New Password</label>
+              <span class="helper-text" data-error="Password and confirm password sould be same" data-success=""></span>
+            </div>
+          </div>
+
+          <br />
+          <div class='row'>
+            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect'
+              style="background-color: #ffa200;">Change Paaword</button>
+          </div>
+        </form>
+      </ng-container>
+
+
+      <ng-container *ngSwitchCase="'details'">
+        <div class="scroll">
+          <div class="bill" id="bill">
+            <div style="display: flex;">
+              <h5>Order details :</h5>
+              <span style="flex: 1;"></span>
+              <img src="../assets/images/restaurant.png" alt="">
+              <h5>Food Court</h5>
+            </div>
+            <br>
+            <div class="details">
+              <div class='row'>
+                <div class='col s12'>
+                  <label for="">Customer Name : </label>
+                  <span>{{customerResponce.customerName}}</span>
+                </div>
+                <div class='col s12'>
+                  <label for="">Customer Contact : </label>
+                  <span>{{customerResponce.customerContact}}</span>
+                </div>
+                <div class='col s12'>
+                  <label for="">Customer Location : </label>
+                  <span>{{customerResponce.customerLocation}}</span>
+                </div>
+                <div class='col s12'>
+                  <label for="">Order date : </label>
+                  <span>{{orderData.orderDate}}</span>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let detail of details">
+                  <tr>
+                    <td>{{detail.itemName}}</td>
+                    <td>{{detail.itemPrice| currency:"INR"}}</td>
+                    <td>{{detail.itemQuantity}}</td>
+                    <td>{{ detail.itemPrice*detail.itemQuantity | currency:"INR"}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+            <div style="display: flex; padding: 10px;">
+              <div class="total">
+                <label for="">Total Amount : </label>
+                <span>{{orderData.orderAmount | currency:"INR"}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; padding: 10px;">
+          <span style="flex: 1;"></span>
+          <button class="btn" style="background-color: #ffa200;" (click)="generatePdf()">Download Bill</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</body>
+
+</html>

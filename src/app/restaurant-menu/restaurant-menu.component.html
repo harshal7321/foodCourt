@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  <div class="other">
+    <button class="btn" style="font-size: 12px;" routerLink="/restaurants">Search Other Resturant</button>
+  </div>
+    <div class="containers">
+        <img src="../assets/images/detail.png" alt="">
+        <div class="main">
+            <div class="heading">
+                <img src="../assets/images/restaurant-1.png" alt="">
+                <h3>{{selectedRestaurant}} Cafe !</h3>
+            </div>
+            <span class="status">Status : Currently {{status}}</span>
+            <div class="list">
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Add</th>
+                    </tr>
+                    <tr *ngFor="let food of foodItems">
+                        <td>{{food.itemrName}}</td>
+                        <td>{{food.itemPrice}}</td>
+                        <td style="text-align: center;">
+                          <label>
+                            <!-- <input [disabled]="check.checked" title="click to Order Item" type="checkbox" #check (click)="updateCheckBox(food, check.checked)"/> -->
+                            <input title="click to Order Item" type="checkbox" #check (click)="updateCheckBox(food, check.checked, food.itemId)"/>
+                            <span></span>
+                          </label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="order">
+                <div class="total">Your order will cost  {{ counter | currency : 'INR'}}</div>
+                <button class="btn" (click)="addToCart()" [disabled]="counter == 0" >Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

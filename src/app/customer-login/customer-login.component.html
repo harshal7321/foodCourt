@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="login container s6" style="padding: 5% 20%;">
+    <h4>Login Customer</h4>
+    <div class="login row">
+      <form class="col s12" #customerLogin="ngForm" (ngSubmit)="loginCustomer()">
+        <div class='row'>
+          <div class='col s12'>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='email' name='email' [(ngModel)]="customer.customerEmail" required/>
+            <label for='email'>Enter your email</label>
+            <span class="helper-text" data-error="Enter valid email id" data-success=""></span>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type='password' name='password' [(ngModel)]="customer.customerPassword" required/>
+            <label for='password'>Enter your password</label>
+            <span class="helper-text" data-error="Enter password" data-success=""></span>
+          </div>
+          <label style='float: right;'>
+            <a class='text-blue' href='#!'><b>Forgot Password?</b></a>
+          </label>
+        </div>
+
+        <br />
+        <div class='row'>
+          <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect' style="background-color: #ffa200;" [disabled]="customerLogin.invalid">Login</button>
+        </div>
+      </form>
+      <label style='float: center;'>
+        Don't have an account, please <a class='text-blue' routerLink="/register"><b>Register</b></a>
+      </label>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    align-items: center;
+}
+
+img {
+    width: 50px;
+    margin: 20px;
+}
+
+.heading {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.navigate {
+    display: flex;
+    gap: 25%;
+    margin-right: 350px;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #ffa200;
+}
+
+.dropdown-content a {
+  color: black;
+}
+
+.dropdown-content a:hover {
+  color: #ffa200;
+}

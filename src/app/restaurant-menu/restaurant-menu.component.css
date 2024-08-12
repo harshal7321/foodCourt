@@ -1,0 +1,88 @@
+.containers {
+    display: flex;
+    align-items: center;
+    margin: 2% 5%;
+}
+
+img {
+    width: 40%;
+}
+.main {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+  color: #002233;
+  font-weight: bold;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #002233;
+}
+
+.heading img {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.status {
+    font-weight: bold;
+}
+
+.list {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+td, th {
+    border: 2px solid #ddd;
+    padding: 8px;
+}
+
+.order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total {
+    background-color: white;
+    width: 250px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button {
+    margin: 5px;
+    border: none;
+    background-color: #ffa200;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff8800;
+}
+
+.other {
+  width: 100%;
+  text-align: right;
+}
