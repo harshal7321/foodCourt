@@ -165,13 +165,6 @@ export class CartComponent implements OnInit {
         this.loading = false;
         this.router.navigate(['/profile']);
       }, 1500);
-
-
-      // if ("Your order is placed, THANK YOU!, See your order details ") {
-      //   this.router.navigate(['/profile']).then(() => {
-      //     window.location.reload();
-      //   });
-      // }
     }
   }
 
